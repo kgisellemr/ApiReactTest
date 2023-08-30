@@ -2,7 +2,7 @@
   padding: 10px 30px;
 }
 
-.title-main {
+.title-main, .button-group-container {
   text-align: center;
   margin-bottom: 40px;
 }

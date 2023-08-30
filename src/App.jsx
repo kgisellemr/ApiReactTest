@@ -17,13 +17,22 @@ function App() {
       <div className="main">
         <h1 className='title-main'>
           Feriados Chile &nbsp;
-          {canReload && <Button size='sm' variant="primary" onClick={() => setCanReload(false)}>Recargar</Button>}
+          {canReload &&
+            <Button
+              size='sm'
+              variant="primary"
+              onClick={() => setCanReload(false)}>
+              Recargar
+            </Button>}
         </h1>
       </div>
       <Buscador searchDate={setFindDateState} />
-      <MiApi findDateState={findDateState} setCanReload={setCanReload} canReload={canReload}/>
+      <MiApi
+        findDateState={findDateState}
+        setCanReload={setCanReload}
+        canReload={canReload}
+      />
       <Footer />
-
     </>
   )
 }

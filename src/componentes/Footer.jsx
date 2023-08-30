@@ -1,7 +1,7 @@
-import { Container } from 'react-bootstrap';
+import { Button, ButtonGroup, Container } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <>
             <Navbar fixed="bottom" className='bg-body-tertiary'>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardApp from "./CardApp";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 const MiApi = (props) => {
     const [info, setInfo] = useState([]);
@@ -13,9 +14,20 @@ const MiApi = (props) => {
     };
 
     const buscarFecha = (fecha) => {
-        const data = info.filter((element)=> element.date === fecha);
+        const data = info.filter((element) => element.date === fecha);
         setInfo(data);
         props.setCanReload(true);
+    };
+
+    const handleInverse = () => {
+        const data = info.slice().reverse();
+        setInfo(data);
+    };
+
+    const handleSort = () => {
+        const data = info.slice().sort((a, b) => a.title.localeCompare(b.title));
+        console.log(data);
+        setInfo(data);
     };
 
     useEffect(() => {
@@ -26,21 +38,27 @@ const MiApi = (props) => {
 
     useEffect(() => {
         buscarFecha(props.findDateState)
-     }, [props.findDateState]);
+    }, [props.findDateState]);
 
     return (
-        <div className="main-card">
-            {
-                info.map((item, index) => <CardApp
+        <>
+            <div className="button-group-container">
+                <ButtonGroup size="sm">
+                    <Button onClick={handleInverse}>Invertir Resultados</Button>
+                    <Button onClick={handleSort} variant="secondary">Ordenar</Button>
+                </ButtonGroup>
+            </div>
+            <div className="main-card">
+                {info.map((item, index) => <CardApp
                     key={index}
                     title={item.title}
                     type={item.type}
                     date={item.date}
                     extra={item.extra}
-                />)
-            }
-
-        </div>
+                    number={index + 1}
+                />)}
+            </div>
+        </>
     )
 }
 
