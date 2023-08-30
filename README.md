@@ -1,5 +1,3 @@
-# React + Vite
-
 # Feriado Chile API prueba
 
-- [videoexplicativokarimmazzone](https://youtu.be/r0edJXd7zO4)
+- [Video explicativo Karim Mazzone](https://youtu.be/r0edJXd7zO4)
